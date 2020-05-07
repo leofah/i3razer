@@ -1,0 +1,20 @@
+# outfiles
+layout.py
+
+# private scripts
+*.sh
+
+# Build
+build
+dist
+*.egg-info
+
+# python cache
+*.pyc
+__pychache__
+
+# onw config
+config.yaml
+
+# IDE settings
+.idea/*

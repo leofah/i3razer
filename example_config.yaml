@@ -1,0 +1,76 @@
+# This is the example configuration of keyrazer
+# It shows the keybindings of the default config for the i3 window manager on a razer keyboard
+# The keybindings are defined in this file
+
+colors:
+  black:  '0x000000'
+  grey:   '0x111111'
+  white:  '0xffffff'
+  red:    '0xff0000'
+  green:  '0x00ff00'
+  blue:   '0x0000ff'
+  aqua:   '0x00ffff'
+  yellow: '0xffff00'
+  orange: '0xff7700'
+  pink:   '0xff00ff'
+  purple: '0x440044'
+
+keys:
+  numbers: 1,2,3,4,5,6,7,8,9,0
+  i3_command: super_l
+  i3_commands: i3_command, shift_l
+  arrows: up, left, down, right
+  exit_mode: nothing + escape, nothing + return, nothing + super_l + r
+  exit_keys: escape, return
+  i3_move: j, k, l, semicolon, arrows
+
+modes:
+  default:
+    scheme: default
+    super_l+shift_l: i3/mod+shift
+    i3_command: i3/mod
+    switch_mode:
+      nothing + super_l + r: resize
+
+  resize:
+    scheme: resize
+    i3_command: resize_exit
+    switch_mode:
+      exit_mode: default
+
+color_schemes:
+  default:
+    all: blue
+    i3_commands: yellow
+
+  i3/mod-base:
+    all: grey
+    i3_move: green
+    numbers: blue
+    i3_commands: yellow
+
+  i3/mod:
+    inherit: i3/mod-base
+    space, a: green # switch focus
+    d, return: aqua # start programs
+    w, e, s, f: orange # change layout
+    r: yellow # modes (resize)
+    v, h: pink # change vertical / horizontal
+
+  i3/mod+shift:
+    inherit: i3/mod-base
+    space: green
+    q: pink # kill window
+    c, r: aqua # reload, restart
+    e: red # exit
+
+  resize:
+    all: grey
+    exit_keys: aqua
+    i3_command: yellow
+    i3_move: green
+
+  resize_exit:
+    all: grey
+    r: aqua
+    i3_command: yellow
