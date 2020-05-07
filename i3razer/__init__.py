@@ -10,7 +10,7 @@ __all__ = [
     "__version__",
 ]
 
-__version__ = "0.0.dev1"  # pre alpha
+__version__ = "0.1"
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
     # Daemonize not working ok with logger, and somehow doesn't start if not foreground=True
     # parser.add_argument("-b", "--background", help="Fork to the background", action="store_true")
     # parser.add_argument("--pid", help="Location of pid File if forking", default="/dev/null")
-    parser.add_argument("-v", help="Be more verbose", action="count", default=0)  # TODO add logger
+    parser.add_argument("-v", help="Be more verbose", action="count", default=0)
 
     args = parser.parse_args()
 
