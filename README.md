@@ -259,4 +259,4 @@ modes:
 ```
 
 ### Example config
-Here is the default [config.yaml](example_config.yaml) which hotkeys are based on the default [i3](https://i3wm.org/) configuration.
+Here is the default [config.yaml](i3razer/example_config.yaml) which hotkeys are based on the default [i3](https://i3wm.org/) configuration.

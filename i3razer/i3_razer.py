@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from openrazer.client import DeviceManager, constants as razer_constants
+from openrazer.client import DeviceManager, DaemonNotFound, constants as razer_constants
 
 from i3razer import config_contants as conf
 from i3razer.config_parser import ConfigParser
@@ -43,8 +43,11 @@ class I3Razer:
         if not logger:
             logger = getLogger(__name__)
         self._logger = logger
+        self._logger.info("Loading config")
         self._load_config(config_file)
+        self._logger.info("Loading Razer Keyboard")
         self._load_keyboard(layout)
+        self._logger.info("Loading done")
 
     def _update_color_scheme(self):
         """
@@ -334,7 +337,11 @@ class I3Razer:
         Reloads to the computer connected keyboards, and could set an layout
         return: true if a razer keyboard was loaded
         """
-        device_manager = DeviceManager()
+        try:
+            device_manager = DeviceManager()
+        except DaemonNotFound:
+            self._logger.critical("Openrazer daemon not running")
+            exit(ERR_DAEMON_OFF)
         for device in device_manager.devices:
             if device.type == "keyboard":
                 self._keyboard = device

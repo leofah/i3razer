@@ -1,5 +1,6 @@
 # outfiles
 layout.py
+!i3razer/layout.py
 
 # private scripts
 *.sh
