@@ -1,9 +1,8 @@
-from logging import getLogger, ERROR
+from logging import ERROR, getLogger
 from re import split as re_split
 
-from yaml import safe_load as yaml_load, YAMLError as YamlError
-
 import i3razer.config_contants as conf
+from yaml import YAMLError as YamlError, safe_load as yaml_load
 
 
 class ConfigParser:

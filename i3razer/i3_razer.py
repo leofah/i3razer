@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from openrazer.client import DeviceManager, DaemonNotFound, constants as razer_constants
+from openrazer.client import DaemonNotFound, DeviceManager, constants as razer_constants
 
 from i3razer import config_contants as conf
 from i3razer.config_parser import ConfigParser

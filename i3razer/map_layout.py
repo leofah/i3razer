@@ -1,9 +1,8 @@
 from pprint import pprint
 
-from openrazer.client import DeviceManager
-
 from i3razer.layout import layouts
 from i3razer.pyxhook import HookManager
+from openrazer.client import DeviceManager
 
 
 def map_layout():
@@ -87,7 +86,6 @@ class MapLayout:
             self.finish()
         else:
             self.init_keyboard(self.device_manager.devices[self.finished_keyboards])
-        pass
 
     def next_key(self):
         """
@@ -136,10 +134,11 @@ class MapLayout:
         with open("layout.py", "w") as f:
             f.write("layouts = ")
             pprint(self.all_layouts, f, sort_dicts=False)
-        print(f"All keyboards are done")
-        print(f"Layouts have been updated in 'layout.py'. Move the file to the correct position and "
-              f"consider opening a pull request on github")
-
+        print("All keyboards are done")
+        print("Layouts have been updated in 'layout.py'. Move the file to the package install position "
+              "(e.g. {~/.local|/usr}/lib/python3.x/site-packages/i3razer)"
+              "and consider opening a pull request on github")
+        exit()
 
 if __name__ == "__main__":
     map_layout()

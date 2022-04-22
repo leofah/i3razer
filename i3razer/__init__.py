@@ -4,8 +4,10 @@ import logging
 import os
 from argparse import ArgumentParser
 
-from i3razer.i3_razer import I3Razer, ConfigParser
+from i3razer.i3_razer import ConfigParser, I3Razer
 from i3razer.map_layout import map_layout
+
+from openrazer.client import __version__ as openrazer_version
 
 __all__ = [
     "I3Razer",
@@ -14,7 +16,7 @@ __all__ = [
     "__version__",
 ]
 
-__version__ = "0.1.dev1"
+__version__ = "0.2"
 
 
 def main():
@@ -32,7 +34,8 @@ def main():
 
     # only output version
     if args.version:
-        print(f"i3 razer version {__version__}")
+        print(f"i3 razer version: {__version__}")
+        print(f"open razer version: {openrazer_version}")
         exit()
 
     # map a new layout
